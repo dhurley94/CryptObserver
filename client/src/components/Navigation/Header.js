@@ -9,8 +9,9 @@ class Header extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
+
       isOpen: false,
-      isAuth: true
+      isAuthenticated: true
     };
   }
 
@@ -25,12 +26,12 @@ class Header extends React.Component {
       isAuth: false
     });
   }
-  
+
   render() {
     return (    
       <div className="container-width">
         <Navbar color="dark" expand="md">
-          <NavbarBrand href="/"><img height="35%"  width="35%" src="../../img/logo.png" alt="logo" /></NavbarBrand>
+          <NavbarBrand href="/"><img height="35%"  width="35%" src="../img/logo.png" alt="logo" /></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar >
           <Nav className="ml-auto" navbar>

@@ -5,7 +5,7 @@ import axios from 'axios';
 class Logout extends React.Component {
     constructor(props) {
         super(props)
-        props.log
+        props.logoutCallback = this.props.logoutCallback.bind(this)
         this.state = {
             email: '',
             password: '',
@@ -14,11 +14,13 @@ class Logout extends React.Component {
     }
 
     logoutCallback() {
-        isAuthenticated: false
+        this.setState({
+            isAuthenticated: false
+        })
     }
 
     componentDidMount() {
-        this. onload()
+        this.onload()
             .then(results => {
                 console.log(results);
             })

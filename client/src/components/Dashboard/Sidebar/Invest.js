@@ -25,6 +25,8 @@ class Invest extends React.Component {
             amount_purchase: 0,
             total_usd: 0
         }
+        this.handleSelectChange = this.handleSelectChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentWillMount() {
@@ -43,6 +45,11 @@ class Invest extends React.Component {
         return axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=25')
     }
 
+    handleChange(e) {
+       this.setState({
+           [e.target.name]: e.target.value
+        })
+    }
 
     handleSelectChange(e) {
         this.setState({
@@ -61,18 +68,19 @@ class Invest extends React.Component {
                         <FormGroup>
                             <Label for="selectCrypto">Select</Label>
                             <Input ref={select => this.cryptoSelect = select} onChange={this.handleSelectChange} type="select" name="cryptoSelect" id="selectCrypto">
+                                    <option>Choose One</option>
                                 {this.state.coinmarketcap.map(coin => (
                                     <option key={coin.rank} value={coin.id}>{coin.name}</option>
                                 ))}
                             </Input>
                         </FormGroup>
                         <FormGroup>
-                            <Label for="amount">How many {} were purchased?</Label>
-                            <Input type="text" name="amount" id="amount" placeholder="00000000" />
+                            <Label for="amount">How many {this.state.coin} were purchased?</Label>
+                            <Input type="text" onChange={this.handleChange} name="amount_purchased" id="amount" placeholder="00000000" />
                         </FormGroup>
                         <FormGroup>
                             <Label for="current">How much was {this.state.coin}?</Label>
-                            <Input type="text" name="amount" id="amount" placeholder="00000000" />
+                            <Input type="text" onChange={this.handleChange} name="price_paid" id="amount" placeholder="00000000" />
                             <span className="sm-lead">Current cost; {this.state.pp_coin}</span>
                         </FormGroup>
                     </Form>

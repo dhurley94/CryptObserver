@@ -9,7 +9,7 @@ class Login extends React.Component {
         this.state = {
             email: '',
             password: '',
-            isAuthenticated: false,
+            isAuthenticated: true,
             formErrors: { email: '', password: '' },
             emailValid: false,
             passwordValid: false,

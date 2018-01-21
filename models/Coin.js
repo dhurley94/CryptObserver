@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     const Coin = sequelize.define('Coin', {
         coin: {
             type: DataTypes.STRING,
+            primaryKey: true
         },
         symbol: {
             type: DataTypes.STRING,
