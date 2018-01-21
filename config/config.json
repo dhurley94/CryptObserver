@@ -1,0 +1,24 @@
+{
+    "production": {
+        "username": "cryptobserver_finalproj",
+        "password": "lOMNb*2C]dLa",
+        "database": "cryptobserver_finalproj",
+        "host": "cryptobserver.center",
+        "dialect": "mysql"
+    },
+    "test": {
+        "username": "cryptobserver_finalproj",
+        "password": "lOMNb*2C]dLa",
+        "database": "cryptobserver_finalproj",
+        "host": "cryptobserver.center",
+        "dialect": "mysql"
+    },
+    "development": {
+        "username": "cryptobserver_finalproj",
+        "password": "lOMNb*2C]dLa",
+        "database": "cryptobserver_finalproj",
+        "host": "cryptobserver.center",
+        "dialect": "mysql"
+    }
+}
+

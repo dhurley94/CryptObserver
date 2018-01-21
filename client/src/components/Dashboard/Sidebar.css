@@ -1,0 +1,10 @@
+.sideBtn {
+    background-color: #343a40;
+    color: white;
+    padding: 10px, 5px;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+.sideBtn:hover {
+    background-color: #5e6974;
+}
