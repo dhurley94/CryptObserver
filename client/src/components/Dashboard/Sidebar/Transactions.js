@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'reactstrap';
 import axios from 'axios';
 
-class Hot extends React.Component {
+class Transactions extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -48,4 +48,4 @@ class Hot extends React.Component {
             }
     }
 
-export default Hot;
+export default Transactions;

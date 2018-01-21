@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import { Container, Row, Col, Collapse, Carousel, CarouselItem, CarouselCaption, } from 'reactstrap';
 import Sidebar from "./Sidebar";
 import './Dashboard.css';
+import { Invest, Transactions, Hot, Miner } from './Sidebar/index';
 import { createStore } from 'redux';
 
 const styles = {
@@ -139,7 +140,10 @@ class Dashboard extends React.Component {
                 </Row>
                     <Row>
                         <Col>
-
+                        <Route exact path="/dashboard/invest" component={Invest} />
+                        <Route exact path="/dashboard/transactions" component={Transactions} />
+                        <Route exact path="/dashboard/miners" component={Miner} />
+                        <Route exact path="/dashboard/hot" component={Hot} />
                         </Col>
                     </Row>
             </Container >

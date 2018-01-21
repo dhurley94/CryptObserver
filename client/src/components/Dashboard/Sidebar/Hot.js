@@ -1,6 +1,5 @@
 import React from 'react';
-import { Container, Table } from 'reactstrap';
-import HotCoin from "./HotCoin";
+import { Container, Row, Table } from 'reactstrap';
 import axios from 'axios';
 
 class Hot extends React.Component {
@@ -30,23 +29,23 @@ class Hot extends React.Component {
                 <Table>
                 <thead>
                        <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Change over 24hr</th>
-                    </tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Change over 24hr</th>
+                        </tr>
                 </thead>
                 <tbody>
                     {this.state.coinmarketcap.map(coin => {
                         <tr>
-                            <td><{coin.rank}</td>
+                            <td>{coin.rank}</td>
                             <td>{coin.name}</td>
-                            <td> {coin.price_usd}/tdw>
-                            <td> {coin.percent_change_24h} </td>
+                            <td>{coin.price_usd}</td>
+                            <td>{coin.percent_change_24h}</td>
                         </tr>
                     })}
                 </tbody>
-            git commit
+                </Table>
             </Row>
         )
     }

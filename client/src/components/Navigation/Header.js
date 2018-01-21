@@ -31,6 +31,8 @@ class Header extends React.Component {
       <div className="container-width">
         <Navbar color="dark" expand="md">
           <NavbarBrand href="/"><img height="35%"  width="35%" src="../../img/logo.png" alt="logo" /></NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar >
           <Nav className="ml-auto" navbar>
             <NavItem style={{ visibility: this.state.isAuthenticated ? 'visible' : 'hidden' }}>
               <NavLink activeClassName="active" to="/dashboard">Dashboard</NavLink>
@@ -45,6 +47,7 @@ class Header extends React.Component {
               <NavLink activeClassName="active" to="/register">Register</NavLink>
             </NavItem>
           </Nav>
+          </Collapse>
         </Navbar>
       </div>
     )}
