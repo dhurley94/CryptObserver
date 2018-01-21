@@ -28,7 +28,7 @@ const Feet = props => (
             </Col>
             <Col style={{ textAlign: 'right' }} md="4" sm="12">
                 <h3><u>Twitter Feed</u></h3>
-                <p><a className="twitter-timeline" href="https://twitter.com/cryptocurrency?tweet-limit=1">Tweets by cryptocurrency</a></p>
+                <p><a className="twitter-timeline" href="https://twitter.com/devidhurley?tweet-limit=1">Tweets by cryptocurrency</a></p>
             </Col>
         </Row>
     </div>

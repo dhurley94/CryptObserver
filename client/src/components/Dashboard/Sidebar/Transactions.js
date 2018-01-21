@@ -12,7 +12,7 @@ class Transactions extends React.Component {
 
     componentDidMount() {
         try {
-            axios.get('https://api.coinmarketcap.com/v1/ticker/')
+            axios.get('/investments/')
                 .then(results => {
                     this.setState({
                         coinmarketcap: results.data,
@@ -29,17 +29,15 @@ class Transactions extends React.Component {
                         <tr>
                             <th><a href="">#</a></th>
                             <th><a href="">Coin Name</a></th>
-                            <th><a href="">USD Price</a></th>
-                            <th><a href="">Top 24hr Gains</a></th>
+                            <th><a href="">Amount</a></th>
+                            <th><a href="">Price</a></th>
+                            <th><a href="">Total</a></th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
                     {this.state.coinmarketcap.map(coin => (
                         <tr>
-                            <td key={coin.id}>{coin.rank}</td>
-                            <td key={coin.id}>{coin.name}</td>
-                            <td key={coin.id}>${coin.price_usd}</td>
-                            <td key={coin.id}>{coin.percent_change_24h}%</td>
                         </tr>
                     ))}
                     </tbody>

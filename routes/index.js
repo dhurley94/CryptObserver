@@ -1,4 +1,5 @@
 const userController = require('../controllers/userController');
+const marketController = require('../controllers/marketController');
 const exchangeApi = require('../controllers/exchangeApi');
 const axios = require('axios');
 
@@ -13,14 +14,20 @@ module.exports = (app, passport) => {
         message: 'Welcome to the API'
     }));
 
-    // User Base
+    // User 
     app.get('/api/user', userController.showUsers);
     app.post('/api/user/create', userController.create);
     app.post('/api/user/login', userController.login);
 
-    // Coin Base
+    // Coin
     app.get('/dashboard/*', isLoggedIn )
     app.get('/api/coins', exchangeApi.top25);
+
+    // Investments
+    app.get('/investments/', marketController.showAll);
+    app.post('/investments/add', marketController.add);
+    app.post('/investments/del', marketController.del);
+    app.post('/investments/update', marketController.update);
 }
 
 function isLoggedIn(req, res, next) {

@@ -13,6 +13,7 @@ class Header extends React.Component {
       isOpen: false,
       isAuthenticated: true
     };
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   toggle() {
@@ -23,7 +24,7 @@ class Header extends React.Component {
 
   handleLogout() {
     this.setState({
-      isAuth: false
+      isAuthenticated: false
     });
   }
 
