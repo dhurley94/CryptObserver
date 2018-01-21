@@ -1,10 +1,10 @@
 const Router = require('express').Router();
 // const bodyParser = require('body-parser');
-const db = require('../models').Investments;
+const db = require('../models').Miner;
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const saltRounds = 10;
-const Investments = require('../models').Investments;
+const Investments = require('../models').Miner;
 
 module.exports = {
     showAll(req, res) {
@@ -28,17 +28,7 @@ module.exports = {
             .findOne({
                 where: {
                     name: req.body.coin,
-                    txid: req.body.id,
-                }
-            })
-            .then(data => { response: res.status(201).send(data) })
-            .catch(error => { response: res.status(422).send(error) })
-    },
-    update(req, res) {
-        return Investments
-            .findOne({
-                where: {
-                    txid: req.body.id
+                    id: req.body.id,
                 }
             })
             .then(data => { response: res.status(201).send(data) })
