@@ -6,25 +6,29 @@ class Transactions extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            coinTransactions: []
+            coinTransactions: [],
+            transactions: false
         }
     }
 
     componentDidMount() {
         try {
-            axios.get('/api/investments/')
+            axios.get('/api/investments')
                 .then(results => {
                     this.setState({
                         coinTransactions: results.data,
-                    })
+                    }),
+                    this.setState({ transactions: true })
+                    console.log(this.state.coinTransactions)
                 })
+                .catch(error => console.log(error))
         } catch (error) {
             console.error(error)
         }
     }
 
     render() {
-        if (this.state.coinTransactions) {
+        if (this.state.coinTransactions.length < 0) {
             return (
                 <Row>
                 <h1>Transactions</h1>
@@ -41,7 +45,6 @@ class Transactions extends React.Component {
                     </thead>
                     <tbody>
                     <tr>
-                        <br/>
                         <center>
                             <h4>No Transactions!</h4>
                         </center>
@@ -62,18 +65,20 @@ class Transactions extends React.Component {
                             <th><a href="">Amount</a></th>
                             <th><a href="">Price</a></th>
                             <th><a href="">Total</a></th>
-                            <th>Date</th>
+                            <th>Date Purchased</th>
+                            <th> - / + </th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.coinTransactions.map(coin => (
                             <tr>
                             <td>{coin.txid}</td>
-                            <td>{coin.name}</td>
+                            <td>{coin.coin}</td>
                             <td>{coin.amount_purchased}</td>
-                            <td>{coin.price_usd}</td>
-                            <td>{coin.price_usd * coin.amount_purchased}</td>
+                            <td>${coin.pp_coin}</td>
+                            <td>${coin.pp_coin * coin.amount_purchased}</td>
                             <td>{coin.createdAt}</td>
+                            <td><a href="/investments/update/">-</a> / <a href="/investments/del/">X</a></td>
                             </tr>
                         ))}
                     </tbody>

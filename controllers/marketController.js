@@ -5,7 +5,7 @@ module.exports = {
     showAll(req, res) {
         return Investments
             .findAll()
-            .then(data => { response: res.status(201).send(data) })
+            .then(data => { response: res.status(200).send(data) })
             .catch(error => { response: res.status(422).send(error) })
     },
     add(req, res) {
@@ -13,31 +13,31 @@ module.exports = {
             .create({
                 coin: req.body.coin,
                 pp_coin: req.body.pp_coin,
-                price_usd: req.body.price_usd,
                 amount_purchased: req.body.amount_purchased
             })
-            .then(data => res.status(200).send(data))
+            .then(data => res.status(201).send(data))
             .catch(error => res.status(422).send(error));
     },
     del(req, res) {
         return Investments
-            .findOne({
+            .destroy({
                 where: {
-                    name: req.body.coin,
-                    txid: req.body.id,
+                    txid: req.body.txid
                 }
             })
-            .then(data => { response: res.status(201).send(data) })
+            .then(data => { response: res.sendStatus(status).send(data) })
             .catch(error => { response: res.status(422).send(error) })
     },
     update(req, res) {
         return Investments
-            .findOne({
-                where: {
-                    txid: req.body.id
+            .update(
+                {pp_coin: req.body.pp_coin,
+                amount_purchased: req.body.amount_purchased},
+                {where: {
+                    txid: req.body.txid
                 }
             })
-            .then(data => { response: res.status(201).send(data) })
+            .then(data => { response: res.sendStatus(status).send(data) })
             .catch(error => { response: res.status(422).send(error) })
     }
 }

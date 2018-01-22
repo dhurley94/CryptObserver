@@ -10,15 +10,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
         },
         pp_coin: {
-            type: DataTypes.DOUBLE,
-            allowNull: false,
-        },
-        price_usd: {
-            type: DataTypes.DOUBLE,
+            type: DataTypes.FLOAT,
             allowNull: false,
         },
         amount_purchased: {
-            type: DataTypes.DOUBLE,
+            type: DataTypes.FLOAT,
         },
   });
   return Investments;

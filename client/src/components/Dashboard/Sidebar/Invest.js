@@ -46,8 +46,7 @@ class Invest extends React.Component {
         axios.post('/api/investments/add', {
             coin: this.state.coin,
             pp_coin: this.state.pp_coin,
-            amount_purchase: this.state.amount_purchase,
-            price_paid: this.state.price_paid,
+            amount_purchased: this.state.amount_purchased,
             headers: {
                 'Content-type': 'application/x-www-form-urlencoded'
             }
@@ -58,9 +57,6 @@ class Invest extends React.Component {
                         flashMessage: 'New Investment Added'
                     })
                 }
-                setTimeout(() => {
-                    this.handleToggle()
-                }, 1500)
             })
             .catch(error => {
                 console.error(error)
@@ -104,11 +100,11 @@ class Invest extends React.Component {
                         </FormGroup>
                         <FormGroup>
                             <Label for="amount">How many {this.state.coin} were purchased?</Label>
-                            <Input type="number" onChange={this.handleChange} name="amount_purchased" id="amount" placeholder="00000000" />
+                            <Input type="text" onChange={this.handleChange} name="amount_purchased" id="amount" placeholder="00000000" />
                         </FormGroup>
                         <FormGroup>
                             <Label for="current">How much was each {this.state.coin}?</Label>
-                            <Input type="number" onChange={this.handleChange} name="pp_coin" id="amount" placeholder="00000000" />
+                            <Input type="text" onChange={this.handleChange} name="pp_coin" id="amount" placeholder="00000000" />
                             <span className="sm-lead">Current cost ${this.state.pp_coin * this.state.amount_purchased}</span>
                         </FormGroup>
                         <Button type="submit">Save</Button>
