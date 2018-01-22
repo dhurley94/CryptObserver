@@ -52,7 +52,7 @@ class Invest extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        axios.post('http://localhost:3000/api/invest/', {
+        axios.post('http://localhost:3001/api/investments/add', {
             coin: this.state.coin,
             pp_coin: this.state.pp_coin,
             amount_purchase: this.state.amount_purchase,
@@ -113,11 +113,11 @@ class Invest extends React.Component {
                         </FormGroup>
                         <FormGroup>
                             <Label for="amount">How many {this.state.coin} were purchased?</Label>
-                            <Input type="text" onChange={this.handleChange} name="amount_purchased" id="amount" placeholder="00000000" />
+                            <Input type="number" onChange={this.handleChange} name="amount_purchased" id="amount" placeholder="00000000" />
                         </FormGroup>
                         <FormGroup>
                             <Label for="current">How much was each {this.state.coin}?</Label>
-                            <Input type="text" onChange={this.handleChange} name="pp_coin" id="amount" placeholder="00000000" />
+                            <Input type="number" onChange={this.handleChange} name="pp_coin" id="amount" placeholder="00000000" />
                             <span className="sm-lead">Current cost; {this.state.pp_coin * this.state.amount_purchased}</span>
                         </FormGroup>
                         <Button type="submit">Save</Button>
@@ -125,7 +125,7 @@ class Invest extends React.Component {
                 </Col>
                 <Col md="6" sm="12">
                     <h2>Recent Additions</h2>
-                    
+                    <hr />
                 </Col>
             </Row>
         )

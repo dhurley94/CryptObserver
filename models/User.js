@@ -13,9 +13,6 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
     },
-    currency: {
-      type: DataTypes.TEXT,
-    },
     privilege: {
       type: DataTypes.INTEGER,
       defaultValue: 0,
@@ -23,10 +20,6 @@ module.exports = (sequelize, DataTypes) => {
     last_login: {
       type: DataTypes.DATE
     },
-    status: {
-      type: DataTypes.ENUM('active', 'inactive'),
-      defaultValue: 'active'
-    }
   });
   return User;
 };

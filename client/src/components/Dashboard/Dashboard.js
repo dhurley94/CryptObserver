@@ -117,6 +117,7 @@ class Dashboard extends React.Component {
         return (
             <Container className="container">
                 <Row>
+                    <hr />
                     <Col md="3">
                         <Sidebar props={ styles } />
                     </Col>
@@ -124,11 +125,10 @@ class Dashboard extends React.Component {
                         <center>
                         <h3 onClick={this.toggle} style={{ color: 'black', textDecoration: 'underline' }}>Top 5 CryptoCurrencies Today!</h3>
                         <Collapse isOpen={this.state.collapse}>
-                            <hr />
                             <Carousel activeIndex={this.state.activeIndex} next={this.next} previous={this.previous}>
                                 {this.state.coinmarketcap.map(coin => (
                                     <CarouselItem onExiting={this.onExiting} onExited={this.onExited} key={coin.total_supply}>
-                                        <img height="500px" width="800px" src={this.state.sliderImages[coin.rank - 1]} alt={coin.symbol} />
+                                        <img height="350px" width="600px" src={this.state.sliderImages[coin.rank - 1]} alt={coin.symbol} />
                                         <CarouselCaption captionText={' $' + coin.price_usd} captionHeader={ '#' + coin.rank + ' ' + coin.name } />
                                     </CarouselItem>
                                 ))}
@@ -138,14 +138,15 @@ class Dashboard extends React.Component {
                         </center>
                     </Col>
                 </Row>
-                    <Row>
-                        <Col>
+                <hr />
+                <Row>
+                    <Col>
                         <Route exact path="/dashboard/invest" component={Invest} />
                         <Route exact path="/dashboard/transactions" component={Transactions} />
                         <Route exact path="/dashboard/miners" component={Miner} />
                         <Route exact path="/dashboard/hot" component={Hot} />
-                        </Col>
-                    </Row>
+                    </Col>
+                </Row>
             </Container >
         )};
     }

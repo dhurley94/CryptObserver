@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Table, Row, Form, InputGroup, Input, Button, Label } from 'reactstrap';
+import { Table, Row, Col, Form, InputGroup, Input, Button, Label } from 'reactstrap';
 
 class Miner extends React.Component {
     constructor(props) {
@@ -37,8 +37,9 @@ class Miner extends React.Component {
     render() {
         return (
             <Row>
+            <Col md="6">
                 <h3>Pools & Workers</h3>
-                    <Form>
+                    <Form> 
                         <Label for="algo">Address</Label>
                         <Input type="select" name="algo" onChange={this.handleChange} />
                         <Label for="address">Address</Label>
@@ -46,7 +47,7 @@ class Miner extends React.Component {
                         <Button type="submit">Add</Button>
                     </Form>
                 <hr />
-
+            </Col>
             </Row>
         );
     }

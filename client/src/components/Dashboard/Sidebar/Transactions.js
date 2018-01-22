@@ -12,11 +12,12 @@ class Transactions extends React.Component {
 
     componentDidMount() {
         try {
-            axios.get('/investments/')
+            axios.get('http://localhost:3001/api/investments/')
                 .then(results => {
-                    this.setState({
-                        coinmarketcap: results.data,
-                    })
+                    // this.setState({
+                    //     coinmarketcap: results.data,
+                    // })
+                    console.log(results)
                 })
         } catch (error) {
             console.error(error)

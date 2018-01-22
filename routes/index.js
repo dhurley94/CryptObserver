@@ -15,10 +15,10 @@ module.exports = (app, passport) => {
     app.get('/dashboard/*', isLoggedIn);
 
     // Investments
-    app.get('/investments/', marketController.showAll);
-    app.post('/investments/add', marketController.add);
-    app.post('/investments/del', marketController.del);
-    app.post('/investments/update', marketController.update);
+    app.get('/api/investments', marketController.showAll);
+    app.post('/api/investments/add', marketController.add);
+    app.post('/api/investments/del', marketController.del);
+    app.post('/api/investments/update', marketController.update);
 }
 
 function isLoggedIn(req, res, next) {

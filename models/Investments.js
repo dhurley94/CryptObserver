@@ -20,7 +20,6 @@ module.exports = (sequelize, DataTypes) => {
         amount_purchased: {
             type: DataTypes.DOUBLE,
         },
-        
   });
   return Investments;
 }
