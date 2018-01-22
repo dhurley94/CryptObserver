@@ -26,7 +26,7 @@ class Register extends React.Component {
         console.log(this.state.email, this.state.password);
         console.log(this.state.fullName, this.state.passwordConfirm);
 
-        axios.post('http://localhost:3000/api/user/create', {
+        axios.post('/api/user/create', {
             fullName: this.state.fullName,
             email: this.state.email,
             password: this.state.password,

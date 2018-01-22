@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, DataTypes) => {    
-    const Investments = sequelize.define('Invesments', {
+    const Investments = sequelize.define('Investments', {
         txid: {
             type: DataTypes.INTEGER,
             primaryKey: true,

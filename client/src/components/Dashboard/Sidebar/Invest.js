@@ -2,18 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import { Row, Col, Form, Input, Label, FormGroup, Button } from 'reactstrap';
 
-const coinmarketcap = () => {
-    try {
-        axios.get('https://api.coinmarketcap.com/v1/ticker/')
-            .then(results => {
-                console.log(coinmarketcap)
-                return results.data;
-            })
-    } catch (error) {
-        console.error(error)
-    }
-}
-
 class Invest extends React.Component {
     constructor(props) {
         super(props)
@@ -25,6 +13,7 @@ class Invest extends React.Component {
             amount_purchased: 0,
             flashToggle: false,
             flashMessage: '',
+            coinTransactions: []
         }
         this.handleSelectChange = this.handleSelectChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -42,17 +31,19 @@ class Invest extends React.Component {
             .then(() => {
                 console.log(this.state.coinmarketcap)
             })
+        axios.get('/api/investments')
+        .then(results => {this.setState({ coinTransactions: results })})
     }
 
     onLoad() {
-        return axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=25')
+        return axios.get('https://api.coinmarketcap.com/v1/ticker/')
     }
 
 
     handleSubmit(e) {
         e.preventDefault();
 
-        axios.post('http://localhost:3001/api/investments/add', {
+        axios.post('/api/investments/add', {
             coin: this.state.coin,
             pp_coin: this.state.pp_coin,
             amount_purchase: this.state.amount_purchase,
@@ -118,7 +109,7 @@ class Invest extends React.Component {
                         <FormGroup>
                             <Label for="current">How much was each {this.state.coin}?</Label>
                             <Input type="number" onChange={this.handleChange} name="pp_coin" id="amount" placeholder="00000000" />
-                            <span className="sm-lead">Current cost; {this.state.pp_coin * this.state.amount_purchased}</span>
+                            <span className="sm-lead">Current cost ${this.state.pp_coin * this.state.amount_purchased}</span>
                         </FormGroup>
                         <Button type="submit">Save</Button>
                     </Form>

@@ -13,30 +13,22 @@ class App extends Component {
       isAuthenticated: false
     };
     this.userHasAuthenticated = this.userHasAuthenticated.bind(this);
-    this.isAuth = this.isAuth.bind(this);
-  }
-  
-  logoutAuthCallback = (DataFromLogout) => {
-    if (DataFromLogout) {
-      this.setState({
-        isAuth: false
-      })
-    }
   }
 
-  userHasAuthenticated = props => {
-    this.setState({ isAuthenticated: props.isAuthenticated });
-  }
-  isAuth = props => {
-    return this.state.isAuthenticated
+  userHasAuthenticated = authenticated => {
+    this.setState({ isAuthenticated: authenticated });
   }
 
   render() {
+    const authProps = {
+      isAuthenticated: this.state.isAuthenticated,
+      userHasAuthenticated: this.userHasAuthenticated
+    };
     return (
       <Router>
         <div className="App">
-            <Header logoutAuthCallback={this.logoutAuthCallback}  handleLogout={this.handleLogout} isAuth={this.isAuth} />
-            <Main userHasAuthenticated={this.userHasAuthenticated} />
+            <Header />
+            <Main authProps={authProps} />
             <Feet />
         </div>
       </Router>

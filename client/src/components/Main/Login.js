@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input, ButtonGroup, Jumbotron } from 'reactstrap';
 // import Failed from '../Errors/Failed';
 import axios from 'axios';
+import Route from 'react-router-dom';
 
 class Login extends React.Component {
     constructor(props) {
@@ -20,12 +21,13 @@ class Login extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    
     handleSubmit(e) {
         e.preventDefault();
 
         console.log(this.state.email, this.state.password);
 
-        axios.post('http://localhost:3001/api/user/login', {
+        axios.post('/api/user/login', {
             email: this.state.email,
             password: this.state.password,
             headers: {
@@ -37,9 +39,9 @@ class Login extends React.Component {
                 this.props.userHasAuthenticated(
                     this.setState({
                         isAuthenticated: true,
-                        isAuth: true,
                     })
                 )
+                this.props.history.push('/dashboard')
             }
         })
         .catch(error => {

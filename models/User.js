@@ -17,9 +17,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       defaultValue: 0,
     },
-    last_login: {
-      type: DataTypes.DATE
-    },
   });
   return User;
 };

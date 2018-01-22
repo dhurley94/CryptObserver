@@ -55,7 +55,7 @@ class Dashboard extends React.Component {
                     })
                     const tmpSlider = [];
                     this.state.coinmarketcap.forEach((image, i) => {
-                        tmpSlider.push('http://localhost:3000/img/' + (i + 1) + '.jpg');
+                        tmpSlider.push('/img/' + (i + 1) + '.jpg');
                     })
                     this.setState({
                         sliderImages: tmpSlider
