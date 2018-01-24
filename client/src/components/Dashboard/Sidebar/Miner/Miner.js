@@ -1,12 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-import { Table, Row, Col, Form, InputGroup, Input, Button, Label } from 'reactstrap';
+import { Table, Row, Col, Form, InputGroup, Input, Button, Label, FormGroup } from 'reactstrap';
 
 class Miner extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            databaseInfo: []
+            databaseInfo: [],
+            address: '',
+            algo: ''
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,11 +41,15 @@ class Miner extends React.Component {
             <Row>
             <Col md="6">
                 <h3>Pools & Workers</h3>
-                    <Form> 
-                        <Label for="algo">Address</Label>
-                        <Input type="select" name="algo" onChange={this.handleChange} />
-                        <Label for="address">Address</Label>
-                        <Input type="text" name="address" onChange={this.handleChange} />
+                    <Form onSubmit={this.handleSubmit}> 
+                        <FormGroup>
+                            <Label for="address">Address</Label>
+                            <Input type="text" name="address" value={this.state.address} onChange={this.handleChange} />
+                            <hr />
+                            <Label for="algo">Algorithm</Label>
+                            <Input type="select" name="algo" value={this.state.algo} onChange={this.handleChange} />
+                        </FormGroup>
+                        <hr />
                         <Button type="submit">Add</Button>
                     </Form>
                 <hr />

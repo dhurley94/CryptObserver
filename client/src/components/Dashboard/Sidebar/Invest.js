@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Row, Col, Form, Input, Label, FormGroup, Button } from 'reactstrap';
+import { Row, Col, Form, Input, Label, FormGroup, Button, Table } from 'reactstrap';
 
 class Invest extends React.Component {
     constructor(props) {
@@ -33,12 +33,12 @@ class Invest extends React.Component {
             })
         axios.get('/api/investments')
         .then(results => {this.setState({ coinTransactions: results })})
+        .catch(error => console.log(error))
     }
 
     onLoad() {
         return axios.get('https://api.coinmarketcap.com/v1/ticker/')
     }
-
 
     handleSubmit(e) {
         e.preventDefault();
@@ -105,13 +105,25 @@ class Invest extends React.Component {
                         <FormGroup>
                             <Label for="current">How much was each {this.state.coin}?</Label>
                             <Input type="text" onChange={this.handleChange} name="pp_coin" id="amount" placeholder="00000000" />
-                            <span className="sm-lead">Current cost ${this.state.pp_coin * this.state.amount_purchased}</span>
                         </FormGroup>
+                        <span className="sm-lead">Your cost ${this.state.pp_coin * this.state.amount_purchased} </span> | 
+                         <span className="sm-lead"> Current Market cost ${this.state.pp_coin * this.state.amount_purchased}</span>
+                        <hr />
                         <Button type="submit">Save</Button>
                     </Form>
                 </Col>
                 <Col md="6" sm="12">
-                    <h2>Recent Additions</h2>
+                    <Table>
+                    <thead>
+                    <tr>
+                        <th>Recent Additions</th>
+                        <th>Coin</th>
+                        <th>Cost</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    </Table>
                     <hr />
                 </Col>
             </Row>

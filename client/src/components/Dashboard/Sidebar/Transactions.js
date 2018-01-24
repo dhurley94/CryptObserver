@@ -1,6 +1,7 @@
 import React from 'react';
-import { Table, Row } from 'reactstrap';
+import { Table, Row, ButtonGroup } from 'reactstrap';
 import axios from 'axios';
+import ModalTransaction from '../Modal/Modal';
 
 class Transactions extends React.Component {
     constructor(props) {
@@ -17,9 +18,8 @@ class Transactions extends React.Component {
                 .then(results => {
                     this.setState({
                         coinTransactions: results.data,
-                    }),
-                    this.setState({ transactions: true })
-                    console.log(this.state.coinTransactions)
+                        transactions: true
+                    })
                 })
                 .catch(error => console.log(error))
         } catch (error) {
@@ -28,7 +28,7 @@ class Transactions extends React.Component {
     }
 
     render() {
-        if (this.state.coinTransactions.length < 0) {
+        if (this.state.coinTransactions.length === 0) {
             return (
                 <Row>
                 <h1>Transactions</h1>
@@ -45,9 +45,7 @@ class Transactions extends React.Component {
                     </thead>
                     <tbody>
                     <tr>
-                        <center>
-                            <h4>No Transactions!</h4>
-                        </center>
+                            <td><h4>No Transactions!</h4></td>
                     </tr>
                     </tbody>
                 </Table>
@@ -60,25 +58,31 @@ class Transactions extends React.Component {
                 <Table>
                     <thead>
                         <tr>
-                            <th><a href="">#</a></th>
-                            <th><a href="">Coin Name</a></th>
-                            <th><a href="">Amount</a></th>
-                            <th><a href="">Price</a></th>
-                            <th><a href="">Total</a></th>
+                            <th><a href="#">#</a></th>
+                            <th><a href="#">Coin Name</a></th>
+                            <th><a href="#">Amount</a></th>
+                            <th><a href="#">Price</a></th>
+                            <th><a href="#">Total</a></th>
                             <th>Date Purchased</th>
                             <th> - / + </th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.coinTransactions.map(coin => (
-                            <tr>
-                            <td>{coin.txid}</td>
-                            <td>{coin.coin}</td>
-                            <td>{coin.amount_purchased}</td>
-                            <td>${coin.pp_coin}</td>
-                            <td>${coin.pp_coin * coin.amount_purchased}</td>
-                            <td>{coin.createdAt}</td>
-                            <td><a href="/investments/update/">-</a> / <a href="/investments/del/">X</a></td>
+                            <tr key={coin.txid}>
+                                <td>{coin.txid}</td>
+                                <td>{coin.coin}</td>
+                                <td>{coin.amount_purchased}</td>
+                                <td>${coin.pp_coin}</td>
+                                <td>${coin.pp_coin * coin.amount_purchased}</td>
+                                <td>{coin.createdAt}</td>
+                                <td>
+                                    <ButtonGroup>
+                                            <ModalTransaction icon={<span class="glyphicon">&#x270f;</span>} update={true} amount_purchased={coin.amount_purchased} pp_coin={coin.pp_coin} color="primary" buttonLabel="Update" message="You are about to update "  coin={coin.coin} txid={coin.txid} route="/api/investments/update" />
+                                            &nbsp;
+                                            <ModalTransaction icon={<span class="glyphicon">&#xe014;</span>} color="danger" buttonLabel="Delete" message='You are about to delete ' coin={coin.coin} txid={coin.txid} route="/api/investments/del" />
+                                    </ButtonGroup>
+                                </td>
                             </tr>
                         ))}
                     </tbody>

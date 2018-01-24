@@ -1,6 +1,6 @@
 # CryptObserver.Center
 
-> React / Redux & Node.js 
+> React.js & Node.js 
 
 ## Technologies
  * React.js

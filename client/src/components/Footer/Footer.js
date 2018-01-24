@@ -6,8 +6,8 @@ const Feet = props => (
     <div className="container">
         <Row>
             <Col style={{ textAlign: 'left' }} md="4" sm="12">
-                <h3><u>Quick View</u></h3>
-                <p>random info</p>
+                <h3><u></u></h3>
+                <p></p>
             </Col>
             <Col style={{ textAlign: 'center' }} md="4" sm="12">
                 <h3><u>Feature Requests</u></h3>
