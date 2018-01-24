@@ -2,13 +2,30 @@ import React from 'react';
 import { Table, Row, ButtonGroup } from 'reactstrap';
 import axios from 'axios';
 import ModalTransaction from '../Modal/Modal';
+import { setInterval } from 'timers';
 
 class Transactions extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             coinTransactions: [],
-            transactions: false
+            transactions: false,
+            intervalId:1000
+        }
+    }
+
+    onCoinChange() {
+        try {
+            axios.get('/api/investments')
+                .then(results => {
+                    this.setState({
+                        coinTransactions: results.data,
+                        transactions: true
+                    })
+                })
+                .catch(error => console.log(error))
+        } catch (error) {
+            console.error(error)
         }
     }
 
@@ -41,6 +58,7 @@ class Transactions extends React.Component {
                             <th><a href="#">Price</a></th>
                             <th><a href="#">Total</a></th>
                             <th>Date</th>
+                            <th>Modify</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -78,9 +96,9 @@ class Transactions extends React.Component {
                                 <td>{coin.createdAt}</td>
                                 <td>
                                     <ButtonGroup>
-                                            <ModalTransaction icon={<span class="glyphicon">&#x270f;</span>} update={true} amount_purchased={coin.amount_purchased} pp_coin={coin.pp_coin} color="primary" buttonLabel="Update" message="You are about to update "  coin={coin.coin} txid={coin.txid} route="/api/investments/update" />
+                                            <ModalTransaction icon={<span className="glyphicon">&#x270f;</span>} update={true} amount_purchased={coin.amount_purchased} pp_coin={coin.pp_coin} color="primary" buttonLabel="Update" message="You are about to update "  coin={coin.coin} txid={coin.txid} route="/api/investments/update" />
                                             &nbsp;
-                                            <ModalTransaction icon={<span class="glyphicon">&#xe014;</span>} color="danger" buttonLabel="Delete" message='You are about to delete ' coin={coin.coin} txid={coin.txid} route="/api/investments/del" />
+                                            <ModalTransaction icon={<span className="glyphicon">&#xe014;</span>} color="danger" buttonLabel="Delete" message='You are about to delete ' coin={coin.coin} txid={coin.txid} route="/api/investments/del" />
                                     </ButtonGroup>
                                 </td>
                             </tr>

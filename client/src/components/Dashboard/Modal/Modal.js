@@ -15,8 +15,6 @@ class ModalTransaction extends React.Component {
         };
 
         this.toggle = this.toggle.bind(this);
-        this.toggleNested = this.toggleNested.bind(this);
-        this.toggleAll = this.toggleAll.bind(this);
         this.process = this.process.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
@@ -44,21 +42,6 @@ class ModalTransaction extends React.Component {
     toggle() {
         this.setState({
             modal: !this.state.modal
-        });
-        this.forceUpdate()
-    }
-
-    toggleNested() {
-        this.setState({
-            nestedModal: !this.state.nestedModal,
-            closeAll: false
-        });
-    }
-
-    toggleAll() {
-        this.setState({
-            nestedModal: !this.state.nestedModal,
-            closeAll: true
         });
     }
 

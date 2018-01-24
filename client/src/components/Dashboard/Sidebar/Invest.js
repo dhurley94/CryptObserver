@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Row, Col, Form, Input, Label, FormGroup, Button, Table } from 'reactstrap';
+import Additions from './Additions'
 
 class Invest extends React.Component {
     constructor(props) {
@@ -27,8 +28,6 @@ class Invest extends React.Component {
                 this.setState({
                     coinmarketcap: results.data
                 })
-            })
-            .then(() => {
                 console.log(this.state.coinmarketcap)
             })
         axios.get('/api/investments')
@@ -119,16 +118,10 @@ class Invest extends React.Component {
                         <th>Recent Additions</th>
                         <th>Coin</th>
                         <th>Cost</th>
+                        <th>Diff</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
+                        <Additions marketData={this.state.coinmarketcap} />
                     </Table>
                     <hr />
                 </Col>
