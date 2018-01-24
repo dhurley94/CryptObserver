@@ -122,6 +122,12 @@ class Invest extends React.Component {
                     </tr>
                     </thead>
                     <tbody>
+                    
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     </tbody>
                     </Table>
                     <hr />

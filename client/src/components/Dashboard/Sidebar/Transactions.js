@@ -35,11 +35,11 @@ class Transactions extends React.Component {
                 <Table>
                     <thead>
                         <tr>
-                            <th><a href="">#</a></th>
-                            <th><a href="">Coin Name</a></th>
-                            <th><a href="">Amount</a></th>
-                            <th><a href="">Price</a></th>
-                            <th><a href="">Total</a></th>
+                            <th><a href="#">#</a></th>
+                            <th><a href="#">Coin Name</a></th>
+                            <th><a href="#">Amount</a></th>
+                            <th><a href="#">Price</a></th>
+                            <th><a href="#">Total</a></th>
                             <th>Date</th>
                         </tr>
                     </thead>

@@ -45,6 +45,7 @@ class ModalTransaction extends React.Component {
         this.setState({
             modal: !this.state.modal
         });
+        this.forceUpdate()
     }
 
     toggleNested() {
