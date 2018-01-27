@@ -1,6 +1,5 @@
 import React from 'react';
 import { Col, Row, InputGroup, Input, Form, Button, FormGroup, Label } from 'reactstrap';
-import axios from 'axios';
 
 const Feet = props => (
     <div className="container">
@@ -28,8 +27,9 @@ const Feet = props => (
                 </Form>
             </Col>
             <Col style={{ textAlign: 'right' }} md="4" sm="12">
-                <h3><u>Twitter Feed</u></h3>
-                <p><a className="twitter-timeline" href="https://twitter.com/devidhurley?tweet-limit=1">Tweets by cryptocurrency</a></p>
+                <h3><u>About Me</u></h3>
+                <p><a className="twitter-timeline" href="https://dhurley.tk">Blog - dhurley.tk</a></p>
+                <p><a className="twitter-timeline" href="https://cryptohost.io">Hosting - cryptohost.io</a></p>
             </Col>
         </Row>
     </div>

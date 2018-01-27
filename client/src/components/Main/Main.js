@@ -1,11 +1,10 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import Login from './Login';
 import Register from './Register';
 import Dashboard from '../Dashboard/Dashboard';
 import { Container } from 'reactstrap';
 import Logout from './Logout';
-import NotFound from '../Errors/NotFound';
 
 class Main extends React.Component {
 

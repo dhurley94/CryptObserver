@@ -28,7 +28,6 @@ class Invest extends React.Component {
                 this.setState({
                     coinmarketcap: results.data
                 })
-                console.log(this.state.coinmarketcap)
             })
         axios.get('/api/investments')
         .then(results => {this.setState({ coinTransactions: results })})
@@ -105,8 +104,7 @@ class Invest extends React.Component {
                             <Label for="current">How much was each {this.state.coin}?</Label>
                             <Input type="text" onChange={this.handleChange} name="pp_coin" id="amount" placeholder="00000000" />
                         </FormGroup>
-                        <span className="sm-lead">Your cost ${this.state.pp_coin * this.state.amount_purchased} </span> | 
-                         <span className="sm-lead"> Current Market cost ${this.state.pp_coin * this.state.amount_purchased}</span>
+                        <span className="sm-lead">You paid ${this.state.pp_coin * this.state.amount_purchased}</span>
                         <hr />
                         <Button type="submit">Save</Button>
                     </Form>

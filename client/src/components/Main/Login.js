@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input, ButtonGroup, Jumbotron } from 'reactstrap';
 // import Failed from '../Errors/Failed';
 import axios from 'axios';
-import Route from 'react-router-dom';
 
 class Login extends React.Component {
     constructor(props) {

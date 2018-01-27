@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Table, Row, Col, Form, InputGroup, Input, Button, Label, FormGroup } from 'reactstrap';
+import { Table, Row, Col, Form, Input, Button, Label, FormGroup } from 'reactstrap';
 
 class Miner extends React.Component {
     constructor(props) {

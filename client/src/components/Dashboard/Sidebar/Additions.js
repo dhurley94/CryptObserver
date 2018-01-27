@@ -22,6 +22,7 @@ class Additions extends React.Component {
 
         let tmpCoin;
 
+        // Calculate diff between paid vs current market
         priceDiff: (coin) => {
             this.props.marketData.forEach(data => {
                 if (coin === data.name) {
@@ -37,8 +38,7 @@ class Additions extends React.Component {
                     <td>{coins.txid}</td>
                     <td>{coins.coin}</td>
                     <td>${coins.pp_coin}</td>
-                    <td>{tmpCoin}</td>
-                    {this.priceDiff(coins.coin)}
+                    <td>N/A</td>
                 </tr>
             ))}
             </tbody>

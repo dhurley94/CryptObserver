@@ -40,10 +40,10 @@ class Header extends React.Component {
               <NavLink activeClassName="active" to="/dashboard">Dashboard</NavLink>
             </NavItem>
             <NavItem style={{ visibility: this.state.isAuthenticated ? 'visible' : 'hidden' }}>
-              <NavLink activeClassName="active" onClick={this.handleLogout} to="/login">Logout</NavLink>
+              <NavLink activeClassName="active" onClick={this.handleLogout} to="/logout">Logout</NavLink>
             </NavItem>
             <NavItem style={{ visibility: this.state.isAuthenticated ? 'hidden' : 'visible' }}>
-              <NavLink activeClassName="active" to="/login">Login</NavLink>
+              <NavLink activeClassName="active" to="/">Login</NavLink>
             </NavItem>
             <NavItem style={{ visibility: this.state.isAuthenticated ? 'hidden' : 'visible' }}>
               <NavLink activeClassName="active" to="/register">Register</NavLink>
