@@ -83,7 +83,7 @@ class Invest extends React.Component {
         return (
             <Row>
                 <br />
-                <Col md="6" sm="12">
+                <Col md="12" sm="12">
                     <h2>Add Invesment</h2>
                     <hr />
                     <Form onSubmit={this.handleSubmit}>
@@ -108,20 +108,6 @@ class Invest extends React.Component {
                         <hr />
                         <Button type="submit">Save</Button>
                     </Form>
-                </Col>
-                <Col md="6" sm="12">
-                    <Table>
-                    <thead>
-                    <tr>
-                        <th>Recent Additions</th>
-                        <th>Coin</th>
-                        <th>Cost</th>
-                        <th>Diff</th>
-                    </tr>
-                    </thead>
-                        <Additions marketData={this.state.coinmarketcap} />
-                    </Table>
-                    <hr />
                 </Col>
             </Row>
         )

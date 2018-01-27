@@ -15,7 +15,7 @@ const Sidebar = props =>
                 <NavLink activeClassName="active" to="/dashboard/transactions">Transactions</NavLink>
             </NavItem>
             <NavItem className="sideBtn">
-                <NavLink activeClassName="active" to="/dashboard/miners">Pools & Workers</NavLink>
+                <NavLink activeClassName="active" to="/dashboard/miners">Mining Workers</NavLink>
             </NavItem>
         </Nav>
     </div>
