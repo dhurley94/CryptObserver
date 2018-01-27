@@ -7,6 +7,7 @@ class Miner extends React.Component {
         super(props)
         this.state = {
             databaseInfo: [],
+            workerTable: [],
             address: '',
             algo: ''
         }
@@ -16,7 +17,11 @@ class Miner extends React.Component {
 
     componentDidMount() {
         axios.get('/api/miner')
-            .then(results => console.log(results))
+            .then(results => {
+                this.setState({
+                    databaseInfo: results.data
+                })
+            })
             .catch(error => console.log(error))
     }
 
@@ -46,7 +51,26 @@ class Miner extends React.Component {
         }
     }
 
+    intervalUpdate() {
+        let tempArray = [];
+        setInterval(() => {
+            tempArray = [];
+            this.state.databaseInfo.forEach(element => {
+                axios.get('https://api.nanopool.org/v1/' + element.algorithm + '/user/' + element.address)
+                    .then(results => {
+                        if (results.data.status) {
+                            tempArray.push(results.data.data)
+                        }
+                    }) 
+                this.setState({
+                    workerTable: tempArray
+                })
+            });
+        }, 30000)
+    }
+
     render() {
+        this.intervalUpdate()
         return (
             <Row>
             <Col md="6">
@@ -78,14 +102,21 @@ class Miner extends React.Component {
                 <Table>
                     <thead>
                         <tr>
-                        <td>Algorithm</td>
+                        <td>Crypto</td>
                         <td>Workers</td>
                         <td>Current Hash</td>
                         <td>Balance</td>
                         </tr>
                     </thead>
                     <tbody>
-
+                        {this.state.workerTable.map(miner => (
+                            <tr>
+                                <td>{miner.account}</td>
+                                <td>{miner.account.workers.length}</td>
+                                <td>{miner.hashrate}</td>
+                                <td>{miner.balance}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </Table>
             </Col>

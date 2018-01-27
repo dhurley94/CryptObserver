@@ -16,8 +16,8 @@ module.exports = {
     add(req, res) {
         return Miner
             .create({
-                algo: req.body.algo,
                 address: req.body.address,
+                algorithm: req.body.algo,
             })
             .then(data => res.status(200).send(data))
             .catch(error => res.status(422).send(error));
