@@ -38,7 +38,7 @@ class Additions extends React.Component {
                     <td>{coins.coin}</td>
                     <td>${coins.pp_coin}</td>
                     <td>{tmpCoin}</td>
-                    {priceDiff(coins.coin)}
+                    {this.priceDiff(coins.coin)}
                 </tr>
             ))}
             </tbody>

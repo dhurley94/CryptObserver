@@ -31,8 +31,8 @@ class Miner extends React.Component {
                     console.log(results);
                 })
                 .catch(error => { (console.log(error)) });
-        } catch (Exceotion) {
-            console.log(Exceotion);
+        } catch (Exception) {
+            console.log(Exception);
         }
     }
 
@@ -46,13 +46,30 @@ class Miner extends React.Component {
                             <Label for="address">Address</Label>
                             <Input type="text" name="address" value={this.state.address} onChange={this.handleChange} />
                             <hr />
-                            <Label for="algo">Algorithm</Label>
-                            <Input type="select" name="algo" value={this.state.algo} onChange={this.handleChange} />
-                        </FormGroup>
+                            <FormGroup>
+                                <Label for="algo">Select</Label>
+                                <Input type="select" name="algo" value={this.state.algo} onChange={this.handleChange} id="algo">
+                                    <option>ETH</option>
+                                    <option>ETC</option>
+                                    <option>XMR</option>
+                                    <option>ETN</option>
+                                    <option>PSC</option>
+                                    <option>ZCH</option>
+                                    <option>SIA</option>
+                                </Input>
+                            </FormGroup>
                         <hr />
+                        </FormGroup>
                         <Button type="submit">Add</Button>
                     </Form>
                 <hr />
+            </Col>
+            <Col md="6">
+                <Table>
+                    <thead>
+                    
+                    </thead>
+                </Table>
             </Col>
             </Row>
         );
