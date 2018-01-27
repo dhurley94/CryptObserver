@@ -4,34 +4,44 @@ const db = require('../models').Miner;
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const saltRounds = 10;
-const Investments = require('../models').Miner;
+const Miner = require('../models').Miner;
 
 module.exports = {
     showAll(req, res) {
-        return Invesments
+        return Miner
             .findAll()
             .then(data => { response: res.status(201).send(data) })
             .catch(error => { response: res.status(422).send(error) })
     },
     add(req, res) {
-        return Invesments
+        return Miner
             .create({
-                fullName: req.body.fullName,
-                email: req.body.email,
-                password: password,
+                algo: req.body.algo,
+                address: req.body.address,
             })
             .then(data => res.status(200).send(data))
             .catch(error => res.status(422).send(error));
     },
     del(req, res) {
-        return Investments
+        return Miner
             .findOne({
                 where: {
-                    name: req.body.coin,
-                    id: req.body.id,
+                    address: req.body.address,
                 }
             })
             .then(data => { response: res.status(201).send(data) })
+            .catch(error => { response: res.status(422).send(error) })
+    },
+    update(req, res) {
+        return Miner
+            .update(
+                {address: req.body.address,
+                algo: req.body.algo},
+                {where: {
+                    address: req.body.address
+                }
+            })
+            .then(data => { response: res.sendStatus(status).send(data) })
             .catch(error => { response: res.status(422).send(error) })
     }
 }

@@ -19,6 +19,12 @@ module.exports = (app, passport) => {
     app.post('/api/investments/add', marketController.add);
     app.post('/api/investments/del', marketController.del);
     app.post('/api/investments/update', marketController.update);
+
+    // Miner
+    app.get('/api/miner', minerController.showAll);
+    app.post('/api/miner/add', minerController.add);
+    app.post('/api/miner/del', minerController.del);
+    app.post('/api/miner/update', minerController.update);
 }
 
 function isLoggedIn(req, res, next) {
