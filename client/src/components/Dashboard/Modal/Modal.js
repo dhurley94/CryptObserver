@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, Form, Input, Label, FormGroup } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Input, Label, FormGroup } from 'reactstrap';
 import axios from 'axios';
 
 class ModalTransaction extends React.Component {
@@ -80,7 +80,7 @@ class ModalTransaction extends React.Component {
                         <Form onSubmit={this.process}>
                             {form}
                             <hr />
-                            <Button type="submit" color="primary" onClick={this.toggle}>{this.props.buttonLabel}</Button>
+                            <FormGroup><Button type="submit" color="primary" onClick={this.toggle}>{this.props.buttonLabel}</Button><hr /><p>Make sure you refresh the page after making changes.</p></FormGroup>
                         </Form>
                     </ModalBody>
                 </Modal>

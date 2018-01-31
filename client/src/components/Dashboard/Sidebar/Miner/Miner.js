@@ -79,8 +79,8 @@ class Miner extends React.Component {
                         <FormGroup>
                             <FormGroup>
                                 <Label for="algo">Select</Label>
-                                <Input type="select" name="algo" value={this.state.algo} onChange={this.handleChange} id="algo">
-                                    <option>eth</option>
+                                <Input disabled type="select" name="algo" value={this.state.algo} onChange={this.handleChange} id="algo">
+                                    <option>Work in Progress</option>
                                     <option>etc</option>
                                     <option>xmr</option>
                                     <option>etn</option>
@@ -95,7 +95,7 @@ class Miner extends React.Component {
                             <hr />
                         
                         </FormGroup>
-                        <Button type="submit">Add</Button>
+                        <Button disabled type="submit">Add</Button>
                     </Form>
             </Col>
             <Col md="6">
@@ -109,6 +109,7 @@ class Miner extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
+                        <p>Work In Progress</p>
                         {this.state.workerTable.map(miner => (
                             <tr>
                                 <td>{miner.account}</td>

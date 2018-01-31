@@ -31,6 +31,7 @@ const Feet = props => (
                 <h3><u>About Me</u></h3>
                 <p><a className="twitter-timeline" href="https://dhurley.tk">Blog - dhurley.tk</a></p>
                 <p><a className="twitter-timeline" href="https://cryptohost.io">Hosting - cryptohost.io</a></p>
+                <p><a className="twitter-timeline" href="https://www.linkedin.com/in/dhurley94/">LinkedIn - David Hurley</a></p>
             </Col>
         </Row>
     </div>
