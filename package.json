@@ -4,12 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "client": "node scripts/start-client.js",
-    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
-    "build": "node scripts/build.js",
-    "seed": "node scripts/seedDB.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "installDeps": "yarn && cd client && yarn"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -39,8 +34,6 @@
   "license": "ISC",
   "devDependencies": {
     "json-loader": "^0.5.7",
-    "webpack": "^3.10.0",
-    "concurrently": "^3.5.0",
-    "nodemon": "^1.11.0"
+    "webpack": "^3.10.0"
   }
 }

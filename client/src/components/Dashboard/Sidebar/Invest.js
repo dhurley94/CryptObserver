@@ -8,13 +8,14 @@ class Invest extends React.Component {
         super(props)
         this.state = {
             coinmarketcap: [],
-            coin: 'Choose Coin',
+            coin: 'N/A, choose a coin first',
             pp_coin: 0,
             price_paid: 0,
             amount_purchased: 0,
             flashToggle: false,
             flashMessage: '',
-            coinTransactions: []
+            coinTransactions: [],
+            placeholders: []
         }
         this.handleSelectChange = this.handleSelectChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -79,6 +80,14 @@ class Invest extends React.Component {
         })
     }
 
+    changePlaceholder(coin) {
+        this.state.coinmarketcap.forEach(element => {
+            if (element.name === coin) {
+                console.log("true")
+            }
+        });
+    }
+
     render() {
         return (
             <Row>
@@ -87,10 +96,11 @@ class Invest extends React.Component {
                     <h2>Add Invesment</h2>
                     <hr />
                     <Form onSubmit={this.handleSubmit}>
-                        <Label for="coin">Choose Cryptocurrency from dropdown</Label>
+                        <Label for="coin">Choose a Cryptocurrency from dropdown</Label>
                         <FormGroup>
                             <Label for="selectCrypto">Select</Label>
-                            <Input onChange={this.handleSelectChange} type="select" value={this.state.coin} name="cryptoSelect" id="selectCrypto">
+                            <Input default="Choose a Crypto" onChange={this.handleSelectChange} type="select" value={this.state.coin} name="cryptoSelect" id="selectCrypto">
+                                <option>Choose a Crypto</option>
                                 {this.state.coinmarketcap.map(coin => (
                                     <option key={coin.rank}>{coin.name}</option>
                                 ))}

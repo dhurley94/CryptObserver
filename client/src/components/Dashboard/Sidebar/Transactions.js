@@ -44,25 +44,24 @@ class Transactions extends React.Component {
         }
     }
 
-    intervalUpdate() {
-        setInterval(() => {
-            try {
-                axios.get('/api/investments')
-                    .then(results => {
-                        this.setState({
-                            coinTransactions: results.data,
-                            transactions: true
-                        })
-                    })
-                    .catch(error => console.log(error))
-            } catch (error) {
-                console.error(error)
-            }
-        }, 30000)
-    }
+    // intervalUpdate() {
+    //     setInterval(() => {
+    //         try {
+    //             axios.get('/api/investments')
+    //                 .then(results => {
+    //                     this.setState({
+    //                         coinTransactions: results.data,
+    //                         transactions: true
+    //                     })
+    //                 })
+    //                 .catch(error => console.log(error))
+    //         } catch (error) {
+    //             console.error(error)
+    //         }
+    //     }, 30000)
+    // }
 
     render() {
-        this.intervalUpdate()
         if (this.state.coinTransactions.length === 0) {
             return (
                 <Row>

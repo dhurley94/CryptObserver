@@ -6,7 +6,7 @@ const Feet = props => (
     <div className="container">
         <Row>
             <Col style={{ textAlign: 'left' }} md="4" sm="12">
-                <h3><u>Portfolio Total</u></h3>
+                <h3><u></u></h3>
                 <p></p>
             </Col>
             <Col style={{ textAlign: 'center' }} md="4" sm="12">
