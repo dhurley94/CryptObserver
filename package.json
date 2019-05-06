@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -28,12 +30,14 @@
     "react-localstorage": "^0.3.1",
     "react-navigator": "^0.0.0-0",
     "request": "^2.83.0",
-    "sequelize": "^4.31.2"
+    "sequelize": "^4.31.2",
+    "snyk": "^1.161.1"
   },
   "author": "David Hurley",
   "license": "ISC",
   "devDependencies": {
     "json-loader": "^0.5.7",
     "webpack": "^3.10.0"
-  }
+  },
+  "snyk": true
 }
