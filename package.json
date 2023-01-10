@@ -18,7 +18,7 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "http": "0.0.0",
-    "method-override": "^2.3.10",
+    "method-override": "^3.0.0",
     "morgan": "^1.9.0",
     "mysql2": "^1.5.1",
     "nodemon": "^1.14.11",
@@ -28,7 +28,7 @@
     "react-localstorage": "^0.3.1",
     "react-navigator": "^0.0.0-0",
     "request": "^2.83.0",
-    "sequelize": "^4.31.2"
+    "sequelize": "^5.1.0"
   },
   "author": "David Hurley",
   "license": "ISC",
